@@ -1,0 +1,21 @@
+model:
+  input_dim: 768
+  hidden_dim: 256
+  num_layers: 3
+  num_classes: 3
+  leaky_relu_slope: 0.19012213006508186
+  heads: 8
+train:
+  batch_size: 24
+  learning_rate: 0.0002
+  weight_decay: 1.326425622410208e-06
+  epochs: 50
+  patience: 5
+  log_dir: runs/fever_gnn
+
+# === 由 tune.py (Optuna) 自动生成 ===
+# 最优超参数:
+#   hidden_dim: 256
+#   num_layers: 3
+#   weight_decay: 1.326425622410208e-06
+#   leaky_relu_slope: 0.19012213006508186

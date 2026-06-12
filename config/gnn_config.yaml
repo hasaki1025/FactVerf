@@ -1,0 +1,15 @@
+model:
+  input_dim: 768        # DeBERTa-v3-base hidden size
+  hidden_dim: 256       # GNN hidden representation dimension
+  num_layers: 2         # Number of MessagePassing layers
+  num_classes: 3        # Classification categories (SUPPORTS, REFUTES, NOT ENOUGH INFO)
+  leaky_relu_slope: 0.2 # Slope for LeakyReLU in attention
+  heads: 8              # Number of attention heads (from paper)
+
+train:
+  batch_size: 24        # from paper
+  learning_rate: 2.0e-4 # from paper
+  weight_decay: 1.0e-5
+  epochs: 50
+  patience: 5           # early stopping patience
+  log_dir: "runs/fever_gnn"

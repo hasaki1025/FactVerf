@@ -1,0 +1,150 @@
+# ==============================================================================
+# FactVerf — .gitignore
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# Python
+# ------------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+
+# Distribution / packaging
+*.egg
+*.egg-info/
+dist/
+build/
+wheels/
+pip-wheel-metadata/
+.eggs/
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+.conda/
+
+# Type checkers & linters
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyright/
+.ruff_cache/
+.pyrefly/
+
+# Testing
+.pytest_cache/
+.tox/
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_meta
+
+# ------------------------------------------------------------------------------
+# Machine Learning — Models & Checkpoints
+# ------------------------------------------------------------------------------
+# PyTorch model files
+*.pt
+*.pth
+*.bin
+*.safetensors
+
+# HuggingFace / LoRA checkpoints — ignore binary weight dirs, keep READMEs
+# Note: git cannot negate files inside an already-ignored directory, so we
+# ignore each binary file type explicitly rather than the whole folder.
+lora/checkpoints/**/optimizer.pt
+lora/checkpoints/**/scheduler.pt
+lora/checkpoints/**/adapter_model.safetensors
+lora/checkpoints/**/adapter_model.bin
+lora/checkpoints/**/model.safetensors
+lora/checkpoints/**/pytorch_model.bin
+lora/checkpoints/**/training_args.bin
+lora/checkpoints/**/rng_state.pth
+
+# GNN training checkpoints
+checkpoints/*.pt
+checkpoints/*.pth
+checkpoints/tuning/
+
+# TensorBoard event files
+runs/
+
+# ------------------------------------------------------------------------------
+# Machine Learning — Datasets & Caches
+# ------------------------------------------------------------------------------
+# Large raw dataset files
+dataset/FEVER/wiki-pages/
+dataset/FEVER/wiki-pages.zip
+dataset/FEVER/wiki.db
+
+# Pre-computed embedding / graph caches (regenerable from raw data)
+dataset/**/*__*__*.pt
+
+# SQLite databases (wiki index, Optuna storage)
+*.db
+!test/wiki.db          # keep the small test fixture if intentional
+
+# ------------------------------------------------------------------------------
+# Optuna
+# ------------------------------------------------------------------------------
+optuna.db
+optuna*.db
+
+# ------------------------------------------------------------------------------
+# Logs
+# ------------------------------------------------------------------------------
+logs/
+lora/logs/
+*.log
+
+# ------------------------------------------------------------------------------
+# Secrets & Environment
+# ------------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# ------------------------------------------------------------------------------
+# OS / IDE
+# ------------------------------------------------------------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+.fuse_hidden*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# JetBrains IDEs (PyCharm, etc.)
+.idea/
+*.iml
+*.iws
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# ------------------------------------------------------------------------------
+# Misc build artifacts
+# ------------------------------------------------------------------------------
+*.orig
+*.rej
+*.bak
